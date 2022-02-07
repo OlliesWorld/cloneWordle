@@ -31,7 +31,9 @@ document.addEventListener('keydown', (e) => {
 	else if(e.key == 'Enter' && currentGuess.dataset.letters.length == 5) {
 		console.log('submit guess')
 		for (let i = 0; i < 5; i++){
-			revealTile(i, checkLetter(i))
+			setTimeout(() => {
+				revealTile(i, checkLetter(i))
+			}, i * 200)
 			
 		}
 	}
@@ -92,10 +94,11 @@ const checkLetterExists = (letter) => {
 	return solutionWord.includes(letter)
 }
 
-const revealTile = (i, status) => {
+const revealTile = (i, state) => {
 	let tileNum = i + 1
 	let tile = document.querySelector('#guessTile' + tileNum)
-	switch(status){
+	
+	switch(state){
 		case 'correct':
 			tile.classList.add('correct')
 			break
@@ -105,5 +108,19 @@ const revealTile = (i, status) => {
 		case 'absent':
 			tile.classList.add('absent')
 	}
+	flipTile(tileNum, state)
+}
 
+const flipTile = (tileNum, state) => {
+	let tile = document.querySelector('#guessTile' + tileNum)
+	tile.classList.add('flip-in')
+	setTimeout(() => {
+		tile.classList.add(state)
+	}, 200)
+	setTimeout(() => {
+		tile.classList.replace('flip-in', 'flip-out')
+	}, 250)
+	setTimeout(() => {
+		tile.classList.remove('flip-out')
+	}, 1500)
 }
