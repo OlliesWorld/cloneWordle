@@ -5,6 +5,7 @@
     grid-template-columns: repeat(5, 1fr);
     gap: rem(3);
     width: rem(300);
+    margin-bottom: rem(8);
 
     &__tile {
         border: rem(2) solid hsl(0, 0%, 50%);
@@ -15,6 +16,11 @@
         justify-content: center;
         font-size: rem(32);
         font-weight: 600;
+        
+    }
+
+    .has-letter {
+        border-color: hsl(145, 6%, 61%);
     }
     .correct {
         background-color: rgb(4, 100, 4);
