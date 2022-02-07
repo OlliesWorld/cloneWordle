@@ -1,0 +1,33 @@
+@use '../util/' as *;
+
+.guess {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: rem(3);
+    width: rem(300);
+
+    &__tile {
+        border: rem(2) solid hsl(0, 0%, 50%);
+        width: rem(52);
+        height: rem(52);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: rem(32);
+        font-weight: 600;
+    }
+    .correct {
+        background-color: rgb(4, 100, 4);
+        border-color: rgb(4, 100, 4);
+    }
+    .present {
+        background-color: rgb(177, 177, 5);
+        border-color: rgb(177, 177, 5);
+    }
+    .absent {
+        background-color: rgb(78, 76, 76);
+        border-color: rgb(78, 76, 76);
+    }
+}
+
+    
