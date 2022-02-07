@@ -63,7 +63,7 @@ const jumpTiles = () => {
 		currentTile.classList.add('jump');
 	  }, i * 200);
 	}
-	let message = document.getElementById("message").style.visibility = "visible"; 
+	let message = document.getElementById("message").style.visibility = "visible"
   }
 
 const checkWin = () => {
@@ -88,7 +88,8 @@ const checkWin = () => {
 }
 
 const showSolution = () => {
-	let message = document.getElementById("sorry").style.visibility = "visible"; 
+	let message = document.getElementById("sorry").style.visibility = "visible"
+	alert('The solution was: ' + solutionWord)
 }
 
 //update letters
