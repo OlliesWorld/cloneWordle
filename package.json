@@ -19,6 +19,9 @@
     "postcss": "^8.3.5",
     "sass": "^1.35.2"
   },
+    "scripts": {
+      "gulp": "gulp"
+    },
   "browserslist": [
     "last 1 version",
     "IE 11",

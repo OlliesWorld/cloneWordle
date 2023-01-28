@@ -1,10 +1,69 @@
+// const keyboard = document.querySelector('.key-container')
+// const keys = [
+//     'Q',
+//     'W',
+//     'E',
+//     'R',
+//     'T',
+//     'Y',
+//     'U',
+//     'I',
+//     'O',
+//     'P',
+//     'A',
+//     'S',
+//     'D',
+//     'F',
+//     'G',
+//     'H',
+//     'J',
+//     'K',
+//     'L',
+//     'ENTER',
+//     'Z',
+//     'X',
+//     'C',
+//     'V',
+//     'B',
+//     'N',
+//     'M',
+//     '«',
+// ]
+
+// keys.forEach(key => {
+//     const buttonElement = document.createElement('button')
+//     buttonElement.textContent = key
+//     buttonElement.setAttribute('id', key)
+//     buttonElement.addEventListener('click', () => handleClick(key))
+//     keyboard.append(buttonElement)
+// })
+// const handleClick = (key) => {
+// 	console.log(key)
+// }
 
 const lettersPattern = /[a-z]/
 let currentGuessCount = 1
 let currentGuess = document.querySelector('#guess' + currentGuessCount)
 let currentLetters = currentGuess.dataset.letters
 
-let words = ['baker', 'store', 'horse', 'speak', 'clone', 'apple', 'truck', 'bread']
+let words = ['baker', 'store', 'horse', 'speak', 'clone', 'apple', 'truck', 'bread', 'belle', 'color', 'ollie', 'mouse', 'phone']
+const getWordle = () => {
+	fetch("https://random-words5.p.rapidapi.com/getMultipleRandom?count=5&wordLength=5", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "random-words5.p.rapidapi.com",
+		"x-rapidapi-key": "5592d8ddc8mshe06f0df96cf9796p1dfa63jsn4017c161ea44"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.error(err);
+});
+}
+getWordle()
+
 let solutionWord = ''
 
 const chooseWord = () => {
@@ -12,7 +71,7 @@ const chooseWord = () => {
 	solutionWord = words[randomNumber]
 }
 chooseWord()
-console.log('solution word = ' + solutionWord )
+// console.log('solution word = ' + solutionWord )
 
 
 //detect key press (letter, backspace, other, enter)
@@ -35,6 +94,7 @@ document.addEventListener('keydown', (e) => {
 	}
 
 })
+
 const submitGuess = () => {
 	console.log('submit guess')
 	for (let i = 0; i < 5; i++){
